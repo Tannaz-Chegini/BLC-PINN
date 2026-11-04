@@ -10,7 +10,7 @@ BLC-PINN (balanced layer-coordinate PINN) solves unsteady two-dimensional singul
 - **A layer-balanced residual weight** in the loss.
 
 This repository contains everything needed to reproduce the results of the paper:
-- the four methods we compare against;
+- BLC-PINN and the four methods it is compared with;
 - the finite-difference reference solver;
 - the graded results of every training run;
 - the scripts that produce every table and figure.
@@ -27,12 +27,13 @@ reference_solver/
   fd_solver_upc.py   the same, with upwinding in the whole coarse region (Ex. 2, eps = 1e-3)
   make_refs_s2.py    computes a reference solution:  python make_refs_s2.py P2|P4 <eps> <N>
   make_upc.py        the same with fd_solver_upc.py
-paper/
+results/
   scripts/           make_tables.py, make_figures.py, make_ref_table.py
-  data/              graded results (stageX_metrics.json), saved solution fields (*_figdata.npz),
-                     reference solutions on the evaluation grids (refs_on_eval_grid_v2.npz),
-                     and the two reference solutions shown in Figure 2 (references/)
   tables/, figures/  the tables and figures of the paper, as produced by the scripts
+data/                graded results of every training run (stageX_metrics.json),
+                     saved solution fields (*_figdata.npz), reference solutions on the
+                     evaluation grids (refs_on_eval_grid_v2.npz), and the two reference
+                     solutions shown in Figure 2 (references/)
 ```
 
 ## Requirements
@@ -48,12 +49,12 @@ Training needs a GPU; the scripts that build the tables and figures do not.
 ## Reproducing the tables and figures (a few minutes on a laptop)
 
 ```
-cd paper/scripts
-python make_tables.py      # Tables 2, 3, 6, the wall times of Table 4  -> paper/tables/
-python make_figures.py     # Figures 2-6                                -> paper/figures/
+cd results/scripts
+python make_tables.py      # Tables 2, 3, 6, the wall times of Table 4  -> results/tables/
+python make_figures.py     # Figures 2-6                                -> results/figures/
 ```
 
-No number in the tables is typed by hand: every entry is computed from the files in `paper/data/`.
+No number in the tables is typed by hand: every entry is computed from the files in `data/`.
 
 Table 5 (accuracy of the reference solver) is built by
 
@@ -83,8 +84,8 @@ Examples:
 cd benchmark
 python bench2.py --selftest                          # correctness checks (1-2 min)
 python bench2.py --plan S2 --n_groups                # number of job groups in a plan
-python bench2.py --plan S2 --task 0 --out results    # run one group
-python grade.py results ../paper/data/refs_on_eval_grid_v2.npz stage2
+python bench2.py --plan S2 --task 0 --out runs       # run one group
+python grade.py runs ../data/refs_on_eval_grid_v2.npz stage2
 ```
 
 On a SLURM cluster, `go.sh` submits a whole plan as a job array (`bash go.sh run6`, `bash go.sh status6`, `bash go.sh grade6`, …). The account and partition selection at the top of the file is specific to the Tempest cluster and will need to be adapted elsewhere.

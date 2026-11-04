@@ -1,0 +1,26 @@
+\begin{table}[!htb]
+\centering\small
+\caption{Accuracy of the finite-difference reference solver. Top: maximum nodal error relative to $\max|u|$ at $t=T$ against the exact solutions of Ex.~1 and Ex.~3 ($N$ intervals per direction). Bottom: references used for grading Ex.~2 and Ex.~4 and their estimated errors at $t=T$ (relative $L^2$ and maximum relative to $\max|u|$). `Extrapolated': Richardson extrapolation $2u_{1024}-u_{512}$, with the observed convergence rate from $N=256,512,1024$ in brackets and the error estimated by the difference from $2u_{512}-u_{256}$; otherwise the $N=1024$ solution, with the error estimated by $|u_{512}-u_{1024}|$.}
+\label{tab:reference}
+\begin{tabular}{llccc}
+\toprule
+Problem & $\varepsilon$ & $N=128$ & $N=256$ & $N=512$ \\
+\midrule
+Ex.~1 & $10^{-2}$ & 1.6e$-$3 & 5.3e$-$4 & 1.7e$-$4 \\
+ & $10^{-3}$ & 1.6e$-$3 & 5.1e$-$4 & 1.6e$-$4 \\
+ & $10^{-4}$ & 1.6e$-$3 & 5.1e$-$4 & 1.6e$-$4 \\
+Ex.~3 & $10^{-2}$ & 2.0e$-$3 & 6.5e$-$4 & 2.1e$-$4 \\
+ & $10^{-3}$ & 2.0e$-$3 & 6.5e$-$4 & 2.1e$-$4 \\
+ & $10^{-4}$ & 2.0e$-$3 & 6.5e$-$4 & 2.1e$-$4 \\
+\midrule
+Problem & $\varepsilon$ & reference (rate) & \multicolumn{2}{c}{estimated error: rel.\ $L^2$ / max} \\
+\midrule
+Ex.~2 & $10^{-2}$ & $N=1024$ & \multicolumn{2}{c}{5.1e$-$5 / 2.9e$-$4} \\
+ & $10^{-3}$ & extrapolated (1.01) & \multicolumn{2}{c}{9.7e$-$5 / 2.8e$-$3} \\
+ & $10^{-4}$ & extrapolated (1.00) & \multicolumn{2}{c}{6.5e$-$5 / 2.8e$-$3} \\
+Ex.~4 & $10^{-2}$ & $N=1024$ & \multicolumn{2}{c}{1.0e$-$4 / 1.1e$-$3} \\
+ & $10^{-3}$ & $N=1024$ & \multicolumn{2}{c}{3.2e$-$5 / 1.0e$-$3} \\
+ & $10^{-4}$ & $N=1024$ & \multicolumn{2}{c}{1.0e$-$5 / 1.0e$-$3} \\
+\bottomrule
+\end{tabular}
+\end{table}

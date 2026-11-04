@@ -1,0 +1,30 @@
+\begin{table}[!htb]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Ablation study: each component added one at a time (relative $L^2$ error, median of three seeds). On Ex.~1 and Ex.~3 the coefficient-aware rates coincide with the basic rates; on Ex.~3 the balanced weight is identically one. The rows marked `control' use three times as many Adam iterations and no weight. The first row of each problem uses the original exponential features with rate $1/\varepsilon$ and penalty boundary conditions.}
+\label{tab:ablation}
+\begin{tabular}{l>{\raggedright\arraybackslash}p{0.42\textwidth}ccc}
+\toprule
+Problem & Variant & $\varepsilon=10^{-2}$ & $\varepsilon=10^{-3}$ & $\varepsilon=10^{-4}$ \\
+\midrule
+Ex.~1 & features with rate $1/\varepsilon$, penalty BC & 5.4e$-$3 & 3.8e$-$2 & 5.2e$-$1 \\
+ & + exact BC/IC & 2.8e$-$4 & 2.9e$-$3 & 7.0e$-$2 \\
+ & + exact BC/IC, $3\times$ longer training (control) & 4.3e$-$4 & 1.9e$-$3 & 5.8e$-$2 \\
+ & + exact BC/IC + balanced weight (BLC-PINN) & 2.2e$-$4 & 1.8e$-$4 & 1.3e$-$4 \\
+\addlinespace
+Ex.~2 & features with rate $1/\varepsilon$, penalty BC & 2.4e$-$2 & 7.0e$-$1 & 9.6e$-$1 \\
+ & + exact BC/IC & 5.7e$-$3 & 3.7e$-$1 & 1.0e$+$0 \\
+ & + coefficient-aware rates & 2.8e$-$3 & 2.9e$-$2 & 4.3e$-$1 \\
+ & + coefficient-aware rates, $3\times$ longer training (control) & 2.1e$-$3 & 1.6e$-$2 & 3.6e$-$1 \\
+ & + balanced weight (BLC-PINN) & 5.1e$-$4 & 4.5e$-$4 & 5.6e$-$4 \\
+\addlinespace
+Ex.~3 & features with rate $1/\varepsilon$, penalty BC & 2.5e$-$3 & 1.4e$-$3 & 1.4e$-$3 \\
+ & + exact BC/IC (= BLC-PINN) & 6.7e$-$5 & 5.8e$-$5 & 8.0e$-$5 \\
+\addlinespace
+Ex.~4 & features with rate $1/\varepsilon$, penalty BC & 6.1e$-$3 & 6.3e$-$3 & 4.7e$-$3 \\
+ & + exact BC/IC & 1.2e$-$3 & 7.2e$-$4 & 6.9e$-$4 \\
+ & + coefficient-aware rates & 1.1e$-$3 & 8.0e$-$4 & 8.0e$-$4 \\
+ & + balanced weight (BLC-PINN) & 9.4e$-$4 & 6.7e$-$4 & 6.0e$-$4 \\
+\bottomrule
+\end{tabular}
+\end{table}

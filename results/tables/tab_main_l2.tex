@@ -1,0 +1,27 @@
+\begin{table}[!htb]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Relative $L^2$ error at the final time, against the exact solution (Ex.~1, Ex.~3) or the reference solution (Ex.~2, Ex.~4); median of three seeds, best value in bold. Fourier PINN: frequency scale $\sigma=1$, the better of the two scales tried in every case.}
+\label{tab:main-l2}
+\begin{tabular}{llccccc}
+\toprule
+Problem & $\varepsilon$ & BLC-PINN & GKPINN & Two-scale NN & Fourier PINN & PINN \\
+\midrule
+Ex.~1 & $10^{-2}$ & \textbf{2.2e$-$4} & 1.3e$-$2 & 3.2e$-$2 & 2.7e$-$2 & 3.3e$-$1 \\
+ & $10^{-3}$ & \textbf{1.8e$-$4} & 4.2e$-$3 & 4.6e$-$1 & 9.3e$-$1 & 2.8e$-$1 \\
+ & $10^{-4}$ & \textbf{1.3e$-$4} & 2.7e$-$3 & 6.5e$-$1 & 7.6e$-$1 & 2.5e$-$1 \\
+\addlinespace
+Ex.~2 & $10^{-2}$ & \textbf{5.1e$-$4} & 1.2e$-$1 & 2.4e$-$1 & 7.2e$-$1 & 2.6e$-$1 \\
+ & $10^{-3}$ & \textbf{4.5e$-$4} & 1.9e$-$1 & 3.7e$-$1 & 7.0e$-$1 & 2.1e$-$1 \\
+ & $10^{-4}$ & \textbf{5.6e$-$4} & 3.8e$-$1 & 4.4e$-$1 & 7.3e$-$1 & 2.0e$-$1 \\
+\addlinespace
+Ex.~3 & $10^{-2}$ & \textbf{6.7e$-$5} & 4.2e$-$3 & 5.0e$-$2 & 1.5e$-$2 & 1.6e$-$1 \\
+ & $10^{-3}$ & \textbf{5.8e$-$5} & 1.7e$-$3 & 1.1e$-$1 & 7.8e$-$2 & 2.6e$-$1 \\
+ & $10^{-4}$ & \textbf{8.0e$-$5} & 1.8e$-$4 & 1.5e$-$1 & 1.2e$-$1 & 2.7e$-$1 \\
+\addlinespace
+Ex.~4 & $10^{-2}$ & \textbf{9.4e$-$4} & 3.0e$-$2 & 3.6e$-$2 & 2.6e$-$2 & 2.2e$-$1 \\
+ & $10^{-3}$ & \textbf{6.7e$-$4} & 2.6e$-$2 & 1.2e$-$1 & 1.7e$-$1 & 2.5e$-$1 \\
+ & $10^{-4}$ & \textbf{6.0e$-$4} & 2.3e$-$2 & 1.3e$-$1 & 1.4e$-$1 & 2.6e$-$1 \\
+\bottomrule
+\end{tabular}
+\end{table}
