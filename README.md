@@ -110,9 +110,6 @@ If you use this code, please cite the paper above. The full reference will be ad
 
 MIT (see `LICENSE`).
 
-## Contact
-
-Tannaz G. Chegini, Department of Mathematical Sciences, Montana State University (tgoodarzvandchegini@montana.edu).
 
 ## Acknowledgements
 
